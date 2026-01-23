@@ -8,6 +8,7 @@
 #include "watcal/watcal_debug.h"
 #include "stdio.h"
 #include "watcal/adl10e.h"
+#include "watcal/comm_parameters.h"
 
 int _write(int file, char *ptr, int len)
 {
@@ -16,10 +17,18 @@ int _write(int file, char *ptr, int len)
 
 }
 
-void test(void)
+
+void print_uint_buf(uint8_t *buf, uint32_t len)
 {
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_0);
-	printf("HERE: ");
-	adl10e_get_readings(0X01, ADL10E_VOLTAGE, 2);
+	for (int i = 0; i < len; i++)
+	{
+		printf("%02X", buf[i]);
+	}
+	printf("\r\n");
+}
+
+void test_debug(void)
+{
+	printf("PRINTF WORKS!\r\n ");
 	HAL_Delay(100);
 }

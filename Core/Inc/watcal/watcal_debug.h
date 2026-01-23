@@ -10,9 +10,9 @@
 
 #include "stm32f1xx_hal.h"
 
-extern UART_HandleTypeDef huart1;
-extern UART_HandleTypeDef huart2;
 int _write(int file, char *ptr, int len);
-void test(void);
+void print_uint_buf(uint8_t *buf, uint32_t len);
+
+void test_debug(void);
 
 #endif /* INC_WATCAL_DEBUG_H_ */
